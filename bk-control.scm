@@ -1,3 +1,27 @@
+(module bk-control
+	(open-serial-port
+	 bk-set-output
+	 bk-set-voltage
+	 bk-set-current
+	 bk-set-voltage-current
+	 bk-get-preset
+	 bk-set-preset
+	 bk-set-over-voltage
+	 bk-get-over-voltage
+	 bk-set-over-current
+	 bk-get-over-current
+	 bk-set-delta-time
+	 bk-get-delta-time
+	 bk-set-sw-time
+	 bk-get-sw-time
+	 bk-run-sw
+	 bk-stop-sw
+	 bk-enable-keyboard
+	 bk-configure-presets
+	 bk-get-output
+	 bk-get-measurements
+	 bk-get-all)
+
 (import
   scheme
   stty
@@ -235,3 +259,4 @@
 ;  (format #t "OUTPUT ~A~%" (bk-get-output p))
 ;  (format #t "ALL ~A~%" (bk-get-all p))
 ;  (format #t "MEASUREMENTS ~A~%" (bk-get-measurements p)))
+)

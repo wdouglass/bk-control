@@ -1,0 +1,8 @@
+;;;; bk-control.egg
+
+((author "Woodrow Douglass")
+ (synopsis "A set of functions for controlling B&K Precision 9103 and 9104 power supplies")
+ (license "BSD")
+ (components (extension bk-control))
+ (version "1.0.0")
+ (category tools))
