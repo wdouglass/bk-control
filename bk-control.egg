@@ -3,6 +3,13 @@
 ((author "Woodrow Douglass")
  (synopsis "A set of functions for controlling B&K Precision 9103 and 9104 power supplies")
  (license "BSD")
- (components (extension bk-control))
+ (dependencies stty sdl2 sdl2-ttf srfi-18 srfi-48)
+ (components (extension bk-control)
+	     (program bk-gui
+		      (source-dependencies "font.scm"))
+	     (generated-source-file genfont
+				    (source-dependencies "generate-font" "generate-font.scm")
+				    (source "font.scm")
+				    (custom-build "generate-font")))
  (version "1.0.0")
  (category tools))

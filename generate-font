@@ -1,0 +1,3 @@
+#!/bin/bash
+
+$CHICKEN_CSI -s generate-font.scm

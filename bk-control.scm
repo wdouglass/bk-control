@@ -26,16 +26,15 @@
   scheme
   stty
   (chicken port)
+  (chicken type)
   (chicken file posix)
   (chicken string)
   (chicken base)
   (chicken format)
   (chicken io))
 
-(define (open-serial-port . args)
-  (let* ((portname (car args))
-	  (baudrate (if (null? (cdr args)) 9600 (cadr args)))
-	  (fd (file-open portname (+ open/rdwr open/excl))))
+(define (open-serial-port portname #!optional (baudrate 9600))
+  (let ((fd (file-open portname (+ open/rdwr open/excl))))
      (let ((in (open-input-file* fd))
 	   (out (open-output-file* fd)))
        (stty in `((ispeed ,baudrate) (ospeed ,baudrate) (not echo) (not icanon) (not isig) (not echoe) (not echoctl) (not echoke) (not onlcr) (not opost) (not icrnl) ignbrk))
@@ -255,8 +254,4 @@
 	  (cons 'setv4 (field->4sig response 60))
 	  (cons 'seti4 (field->4sig response 64)))))
 	  
-;(let ((p (open-serial-port "/dev/ttyUSB0")))
-;  (format #t "OUTPUT ~A~%" (bk-get-output p))
-;  (format #t "ALL ~A~%" (bk-get-all p))
-;  (format #t "MEASUREMENTS ~A~%" (bk-get-measurements p)))
 )
