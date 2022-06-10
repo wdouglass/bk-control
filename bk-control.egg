@@ -5,11 +5,12 @@
  (license "BSD")
  (dependencies stty sdl2 sdl2-ttf srfi-18 srfi-48)
  (components (extension bk-control)
-	     (program bk-gui
-		      (source-dependencies "font.scm"))
-	     (generated-source-file genfont
-				    (source-dependencies "generate-font" "generate-font.scm")
-				    (source "font.scm")
-				    (custom-build "generate-font")))
+             (program bk-gui
+                      (component-dependencies "bk-control" "genfont")
+                      (source-dependencies "font.scm"))
+             (generated-source-file genfont
+                                    (source-dependencies "generate-font" "generate-font.scm")
+                                    (source "font.scm")
+                                    (custom-build "generate-font")))
  (version "1.0.0")
  (category tools))
