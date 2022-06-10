@@ -90,6 +90,8 @@
   #t)
 
 (define (bk-set-output p on)
+  (unless (boolean? on)
+    (error 'wrong-type "On should be a boolean"))
   (bk-write p (format #f "SOUT~A" (if on 1 0)))
   (bk-ok p))
 
@@ -188,6 +190,8 @@
   (bk-ok p))
 
 (define (bk-enable-keyboard p en)
+  (unless (boolean? en)
+    (error 'wrong-type "Enable should be a boolean"))
   (bk-write p (if en "ENDS" "SESS"))
   (bk-ok p))
 
